@@ -104,9 +104,9 @@ class AssetViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         """create is patched to check that a user can only create a new asset with department
         equals to one of the departments the user belongs to."""
-        validate_asset_user_institution(request.user,
-                                        request.data['department']
-                                        if 'department' in request.data else None)
+        # validate_asset_user_institution(request.user,
+        #                                 request.data['department']
+        #                                 if 'department' in request.data else None)
         return super(AssetViewSet, self).create(request, *args, **kwargs)
 
     def update(self, request, *args, **kwargs):
